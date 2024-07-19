@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ lower .Values.sename}}-sql-pv
+  namespace: workshop290-ns
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+  - ReadWriteMany
+  hostPath:
+    path: /var/lib/data
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  namespace: workshop290-ns
+  name: {{ lower .Values.sename}}-sqlite-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+     storage: 500Mi
+
+
