@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: {{ lower .Values.sename}}-sql-pv
+  namespace: {{ .Values.namespace }}
 spec:
   capacity:
     storage: 2Gi
@@ -16,6 +17,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ lower .Values.sename}}-sqlite-pvc
+  namespace: {{ .Values.namespace }}
 spec:
   accessModes:
     - ReadWriteMany
