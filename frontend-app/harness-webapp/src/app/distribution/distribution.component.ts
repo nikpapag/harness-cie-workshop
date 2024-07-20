@@ -23,11 +23,16 @@ export class DistributionComponent {
   isDoughnut: boolean = false;
   legendPosition: string = 'below';
   barChartData: any[] = [];
+
+  distributionData: any[]=[];
+
+
   constructor(private apiService: ApiserviceService) {}
 
   barData: any;
 
   ngOnInit(): void {
+    
 
   }
 
@@ -42,16 +47,18 @@ export class DistributionComponent {
     const now = new Date();
     const startTimestamp = new Date(now.getTime() - 400000); // 1 hour in milliseconds
     const endTimestamp = now;
+    const groupedData = this.groupDataByTime(this.distributionData);
+    this.data = this.transformDataForChart(groupedData);
+    console.log(this.distributionData)
 
-    this.apiService
-      .getDistribution(startTimestamp, endTimestamp)
-      .subscribe((data) => {
-        const groupedData = this.groupDataByTime(data);
-     //   const groupedBarData = this.groupDataByTimeBarChart(data);
-        this.data = this.transformDataForChart(groupedData);
-     //   this.barChartData = this.transformBarData(groupedBarData);
-   //     this.barData = this.groupByBucket(this.barChartData);
-      });
+  //  this.apiService
+  //    .getDistribution(startTimestamp, endTimestamp)
+  //    .subscribe((data) => {
+   //     const groupedData = this.groupDataByTime(data);
+
+    //    this.data = this.transformDataForChart(groupedData);
+
+    //  });
 
 
   }
@@ -109,7 +116,7 @@ export class DistributionComponent {
   groupDataByTime(data: any[]) {
     const groupedData: { [key: string]: { [key: number]: number } } = {};
     data.forEach((entry) => {
-      const timestamp = Math.floor(entry.created_at / 10) * 10; // Round to the nearest minute
+      const timestamp = Math.floor(entry.created_at / 5) * 10; // Round to the nearest minute
       if (!groupedData[entry.name]) {
         groupedData[entry.name] = {};
       }
@@ -197,7 +204,7 @@ return dataArray
     setTimeout(() => {
       clearInterval(intervalId);
 
-    }, duration * 60 * 1000);
+    }, duration * 20 * 1000);
   }
 
 
@@ -209,7 +216,9 @@ return dataArray
     const apiCall = () => {
       // Your API call logic here
       this.apiService.generateEntry('normal').subscribe((data) => {
+        this.distributionData.push(data)
         console.log('API call executed at', new Date().toISOString());
+        
       });
     };
 
