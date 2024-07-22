@@ -1,8 +1,3 @@
-# Accessing the Workshop Account
-
-1. Go to <https://workshop.harness.io>
-
-
 # Lab 1 - Build
 
 ### Summary: Setup a CI Pipeline, including running source code tests, building the executable, building and pushing the artifact to a remote repository
