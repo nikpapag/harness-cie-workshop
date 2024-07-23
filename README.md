@@ -34,9 +34,9 @@
 
 | Input           | Value           | Notes |
 | --------------- | --------------- | ----- |
-| Stage Name      | **Build**       |       |
-| Clone Codebase  | Enabled         |       |
-| Repository Name | harnessrepo     |       |
+| Stage Name      |Build|       |
+| Clone Codebase  |Enabled|       |
+| Repository Name |harnessrepo|       |
 
 5. There are two main tabs that need configuration:\
    **Infrastructure**
@@ -45,7 +45,7 @@
 
 | Input          | Value | Notes |
 | -------------- | ----- | ----- |
-| Infrastructure | Cloud |       |
+| Infrastructure |Cloud|       |
 
 **Execution**
 
@@ -55,14 +55,14 @@
 
 | Input                        | Value                                      | Notes                                                                                                                                             |
 | ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                         | **Run Tests With Intelligence**            |                                                                                                                                                   |
-| Language                     | Python                                     |                                                                                                                                                   |
-| Build Tool                   | Pytest                                     |                                                                                                                                                   |
+| Name                         |Run Tests With Intelligence|                                                                                                                                                   |
+| Language                     |Python|                                                                                                                                                   |
+| Build Tool                   |Pytest|                                                                                                                                                   |
 | Build Arguments              | Leave empty                                | Harness recognises the framework “pytest” and will fill in the gaps at runtime                                                                    |
 | Test Report Paths            | Leave empty                                | Harness automatically parses the current directory to identify test results                                                                       |
 | **Additional Configuration** |                                            |                                                                                                                                                   |
-| Pre-Command                  | **pip install pytest & cd ./python-tests** | The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
-| Run only selected tests      | Enabled                                    | Activate Test Intelligence                                                                                                                        |
+| Pre-Command                  |pip install pytest & cd ./python-tests| The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
+| Run only selected tests      |Enabled| Activate Test Intelligence                                                                                                                        |
 
 - After completing configuration select **Apply Changes** from the top right of the configuration popup
 
@@ -72,7 +72,7 @@
 
 | Input         | Value               | Notes |
 | ------------- | ------------------- | ----- |
-| Template Name | Compile Application |       |
+| Template Name |Compile Application|       |
 
 - Select the  template and press **Use Template,** then provide a name for that template
 
@@ -80,7 +80,7 @@
 
 | Input | Value   | Notes |
 | ----- | ------- | ----- |
-| Name  | Compile |       |
+| Name  |Compile|       |
 
 - Select **Add Step**, then **Add Step** again, then select **Build and Push an image to Dockerhub** from the Step Library and configure with the following
 
@@ -88,12 +88,12 @@
 
 | Input             | Value                                               | Notes                                                                    |
 | ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
-| Name              | Push to DockerHub                                   |                                                                          |
-| Docker Connector  | dockerhub                                           |                                                                          |
-| Docker Repository | **nikpap/harness-workshop**                         |                                                                          |
-| Tags              | **<+variable.username>-<+pipeline.sequenceId>**     | This will be the tag of the image using harness expressions              |
-| Dockerfile        | **/harness/frontend-app/harness-webapp/Dockerfile** | This tells harness where is the Dockerfile for building the app          |
-| Context           | **/harness/frontend-app/harness-webapp**            | This tells from where to run the instructions included in the dockerfile |
+| Name              |Push to DockerHub|                                                                          |
+| Docker Connector  |dockerhub|                                                                          |
+| Docker Repository |nikpap/harness-workshop|                                                                          |
+| Tags              |<+variable.username>-<+pipeline.sequenceId>| This will be the tag of the image using harness expressions              |
+| Dockerfile        |/harness/frontend-app/harness-webapp/Dockerfile| This tells harness where is the Dockerfile for building the app          |
+| Context           |/harness/frontend-app/harness-webapp| This tells from where to run the instructions included in the dockerfile |
 
 1. Click **Apply Changes** to close the config dialog
 
@@ -102,7 +102,7 @@
 
 | Input       | Value | Notes        |
 | ----------- | ----- | ------------ |
-| Branch Name | main  | prepopulated |
+| Branch Name |main| prepopulated |
 
 
 # Lab 2 - DevSecOps
@@ -144,7 +144,7 @@
 
 | Input       | Value | Notes |
 | ----------- | ----- | ----- |
-| Branch Name | main  |       |
+| Branch Name |main|       |
 
 After the **Build and Push** stage is complete, go to the **Security Tests** tab to see the deduplicated, normalized and prioritized list of vulnerabilities discovered across your scanners.
 
@@ -174,8 +174,8 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 
 | Input           | Value          | Notes |
 | --------------- | -------------- | ----- |
-| Stage Name      | **frontend**   |       |
-| Deployment Type | Kubernetes     |       |
+| Stage Name      |frontend|       |
+| Deployment Type |Kubernetes|       |
 
 4. Configure the **frontend** Stage with the following\
    **Service**
@@ -185,22 +185,22 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 
 | Input                      | Value                                               | Notes                              |
 | -------------------------- | --------------------------------------------------- | ---------------------------------- |
-| Name                       | **frontend**                                        |                                    |
-| Deployment Type            | Kubernetes                                          |                                    |
+| Name                       |frontend|                                    |
+| Deployment Type            |Kubernetes|                                    |
 | * **Add Manifest**         |                                                     |                                    |
-| Manifest Type              | K8s Manifest                                        |                                    |
-| K8s Manifest Store         | Code                                                |                                    |
-| Manifest Identifier        | **templates**                                       |                                    |
-| Repository                 | harnessrepo                                         |                                    |
-| Branch                     | **main**                                            |                                    |
-| File/Folder Path           | **harness-deploy/frontend/manifests**               |                                    |
-| Values.yaml                | **harness-deploy/frontend/values.yaml**             |                                    |
+| Manifest Type              |K8s Manifest|                                    |
+| K8s Manifest Store         |Code|                                    |
+| Manifest Identifier        |templates|                                    |
+| Repository                 |harnessrepo|                                    |
+| Branch                     |main|                                    |
+| File/Folder Path           |harness-deploy/frontend/manifests|                                    |
+| Values.yaml                |harness-deploy/frontend/values.yaml|                                    |
 | - **Add Artifact Source**  |                                                     |                                    |
-| Artifact Repository Type   | Docker Registry                                     |                                    |
-| Docker Registry Connector  | dockerhub                                           |                                    |
-| Artifact Source Identifier | **frontend**                                        |                                    |
-| Image Path                 | **nikpap/harness-workshop**                         |                                    |
-| Tag                        | **<+variable.username>-<+pipeline.sequenceId>**     | _Switch to expression and set to_  |
+| Artifact Repository Type   |Docker Registry|                                    |
+| Docker Registry Connector  |dockerhub|                                    |
+| Artifact Source Identifier |frontend|                                    |
+| Image Path                 |nikpap/harness-workshop|                                    |
+| Tag                        |<+variable.username>-<+pipeline.sequenceId>| _Switch to expression and set to_  |
 
 **Environment**
 
@@ -212,7 +212,7 @@ The target infrastructure has been pre-created for us. The application will be d
 
 | Input | Value | Notes                                                             |
 | ----- | ----- | ----------------------------------------------------------------- |
-| Name  | prod  | Make sure to select the environment and infrastructure definition |
+| Name  |prod| Make sure to select the environment and infrastructure definition |
 
 - Click **- Select -** on the environment input box ****
 
@@ -222,7 +222,7 @@ The target infrastructure has been pre-created for us. The application will be d
 
 | Input | Value | Notes |
 | ----- | ----- | ----- |
-| Name  | k8s   |       |
+| Name  |k8s|       |
 
 **Execution**
 
@@ -246,8 +246,8 @@ The target infrastructure has been pre-created for us. The application will be d
 
 | Input           | Value          | Notes |
 | --------------- | -------------- | ----- |
-| Stage Name      | **backend**    |       |
-| Deployment Type | Kubernetes     |       |
+| Stage Name      |backend|       |
+| Deployment Type |Kubernetes|       |
 
 7. Configure the **backend** Stage with the following\
    **Service**
@@ -257,7 +257,7 @@ The target infrastructure has been pre-created for us. The application will be d
 
 | Input | Value       | Notes |
 | ----- | ----------- | ----- |
-| Name  | **backend** |       |
+| Name  |backend|       |
 
 **Environment**
 
@@ -275,13 +275,13 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input       | Value | Notes       |
 | ----------- | ----- | ----------- |
-| Branch Name | main  | Leave as is |
+| Branch Name |main| Leave as is |
 
 9. While the canary deployment is ongoing navigate to the web page and see if you can spot the canary (use the check release button) 
 
 | project                | domain        | suffix |
 | ---------------------- | ------------- | ------ |
-| http\://\<+variable.username> | .cie-bootcamp | .co.uk |
+|http\://project_id|.cie-bootcamp|.co.uk|
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfmb1N3lAe0EOnEun9neU9y3ilqy3HbxfnWfUMzF3FsykslwgQfU_W4pE0wlt5kYSp6_mTs7cVP0anhJ7uvtsytal2qX3ZEq3vvOT3DOBUzE9SZ3rpwkAHP6e_ExdRbo5VmN2kpxdFlp6u8iGaKwhW_uyAohEmJurkjmEB2Ww?key=cRG2cvp_PHVW0KG2Gq6Y_A)
 
@@ -314,8 +314,8 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input    | Value      | Notes |
 | -------- | ------     | ----- |
-| Name     | **sdk**    |       |
-| Key Type | client     |       |
+| Name     |dk|       |
+| Key Type |client|       |
 
 4. Copy the secret to use later. Note that the key will be redacted once you leave the page.
 
@@ -327,7 +327,7 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input | Value                               | Notes |
 | ----- | ----------------------------------- | ----- |
-| Name  | **sdk**                             |       |
+| Name  |sdk|       |
 | Value | _SDK Key copied from previous step_ |       |
 
 4. Click **Save**
@@ -342,12 +342,12 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input                         | Value      | Notes |
 | ----------------------------- | --------------   | ----- |
-| Type                          | Boolean          |       |
-| Name                          | **webinarff**    |       |
+| Type                          |Boolean|       |
+| Name                          |webinarff|       |
 | **Variation Settings**        |                  |       |
-| Name (first one)              | **Show Offer**   |       |
-| Name (second one)             | **Hide Offer**   |       |
-| If the flag is Enabled, serve | **Show Offer**   |       |
+| Name (first one)              |Show Offer|       |
+| Name (second one)             |Hide Offer|       |
+| If the flag is Enabled, serve |Show Offer|       |
 
 3. Enable the flag by clicking on the **Flag is Disabled** button and click **Save**
 
@@ -362,8 +362,8 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input      | Value     | Notes |
 | ---------- | --------- | ----- |
-| Name       | _webinar_ |       |
-| Identifier | _webinar_ |       |
+| Name       |webinar|       |
+| Identifier |webinar|       |
 
 3. Click **Add Flag**, toggle **webinarff**, set the variation to **Show Offer**, then click on **Add 1 Flags**
 
@@ -392,16 +392,16 @@ Lab 6 - Continuous Verification
 
 | Input                        | Value  | Notes                                                                                            |
 | ---------------------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| Name                         | Verify |                                                                                                  |
-| Continuous Verification Type | Canary |                                                                                                  |
-| Sensitivity                  | Low    | This is to define how sensitive the ML algorithms are going to be on deviation from the baseline |
-| Duration                     | 5mins  |                                                                                                  |
+| Name                         |Verify|                                                                                                  |
+| Continuous Verification Type |Canary|                                                                                                  |
+| Sensitivity                  |Low| This is to define how sensitive the ML algorithms are going to be on deviation from the baseline |
+| Duration                     |5mins|                                                                                                  |
 
 Click **Save** and then click **Run** to execute the pipeline with the following inputs. As a bonus, save your inputs as an Input Set before executing (see below)
 
 | Input       | Value | Notes       |
 | ----------- | ----- | ----------- |
-| Branch Name | main  | Leave as is |
+| Branch Name |main| Leave as is |
 
 Lab 7 - Validate Release
 
@@ -419,7 +419,7 @@ Lab 7 - Validate Release
 
 | project                | domain        | suffix |
 | ---------------------- | ------------- | ------ |
-| http\://\<project\_id> | .cie-bootcamp | .co.uk |
+| http\://\<project\_id>|.cie-bootcamp|.co.uk|
 
 - Drill down to the distribution test tab and run the traffic generation by clicking the **Play** button
 
@@ -463,8 +463,8 @@ Lab 7 - Validate Release
 
 | Input            | Value        | Notes |
 | ---------------- | ------------ | ----- |
-| Trigger Event    | On Run       |       |
-| Failure Strategy | Error & exit |       |
+| Trigger Event    |On Run|       |
+| Failure Strategy |Error & exit|       |
 
 **Test the Policy to require Approvals**
 
@@ -480,15 +480,15 @@ Lab 7 - Validate Release
 
 | Input            | Value            | Notes |
 | ---------------- | ---------------- | ----- |
-| Step Name        | **Approval**     |       |
-| Type of Approval | Harness Approval |       |
+| Step Name        |Approval|       |
+| Type of Approval |Harness Approval|       |
 
 6. Configure the Approval step as follows
 
 | Input       | Value             | Notes |
 | ----------- | ----------------- | ----- |
-| Name        | Approval          |       |
-| User Groups | All Project Users |       |
+| Name        |Approval|       |
+| User Groups |All Project Users|       |
 
 7. Repeat for the **backend** stage
 
@@ -520,11 +520,11 @@ Lab 7 - Validate Release
 
 | Input                      | Value                     | Notes |
 | -------------------------- | ------------------------- | ----- |
-| Name                       | **Criticals Not Allowed** |       |
-| Entity Type                | Custom                    |       |
-| Event Evaluation           | On Step                   |       |
+| Name                       |Criticals Not Allowed|       |
+| Entity Type                |Custom|       |
+| Event Evaluation           |On Step|       |
 | Policy Evaluation Criteria |                           |       |
-| Policy to Evaluate         | Runtime OWASP CVEs        |       |
+| Policy to Evaluate         |Runtime OWASP CVEs|       |
 
 7. For the new policy set, toggle the **Enforced** button
 
@@ -541,9 +541,9 @@ Lab 7 - Validate Release
 
 | Input       | Value                                          | Notes                                                                                                                                                   |
 | ----------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name        | **Policy - No Critical CVEs**                    |                                                                                                                                                         |
-| Entity Type | Custom                                           |                                                                                                                                                         |
-| Policy Set  | Criticals Now Allowed                            | Make sure to select the Project tab in order to see your Policy Set                                                                                     |
-| Payload     | {"NODE\_OSS\_CRITICAL\_COUNT": _\<variable>_}    | Set the field type to Expression, then replace _\<variable>_ with OWASP output variable CRITICAL. Go to a previous execution to copy the variable path. |
+| Name        |Policy - No Critical CVEs|                                                                                                                                                         |
+| Entity Type |Custom|                                                                                                                                                         |
+| Policy Set  |Criticals Now Allowed| Make sure to select the Project tab in order to see your Policy Set                                                                                     |
+| Payload     |{"NODE\_OSS\_CRITICAL\_COUNT": _\<variable>_}| Set the field type to Expression, then replace _\<variable>_ with OWASP output variable CRITICAL. Go to a previous execution to copy the variable path. |
 
 5. Save the pipeline and execute. Note that the pipeline fails at the policy evaluation step due to critical vulnerabilities being found by OWASP.
