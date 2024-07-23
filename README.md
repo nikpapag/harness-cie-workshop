@@ -24,7 +24,7 @@
 |                                        |                  |                                                                                            |
 | -------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
 | Input                                  | Value            | Notes                                                                                      |
-| Name                                   | harness-workshop |                                                                                            |
+| Name                                   | **workshop** |                                                                                            |
 | How do you want to setup your pipeline | Inline           | This indicates that Harness (rather than Git) will be the source of truth for the pipeline |
 
 3. From Pipeline Studio, Click **Add Stage** and select **Build** as the Stage Type
@@ -34,7 +34,7 @@
 |                 |             |       |
 | --------------- | ----------- | ----- |
 | Input           | Value       | Notes |
-| Stage Name      | Build       |       |
+| Stage Name      | **Build**       |       |
 | Clone Codebase  | Enabled     |       |
 | Repository Name | harnessrepo |       |
 
@@ -53,13 +53,13 @@
 |                              |                                     |                                                                                                                                                   |
 | ---------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Input                        | Value                               | Notes                                                                                                                                             |
-| Name                         | Run Tests With Intelligence         |                                                                                                                                                   |
+| Name                         | **Run Tests With Intelligence**         |                                                                                                                                                   |
 | Language                     | Python                              |                                                                                                                                                   |
 | Build Tool                   | Pytest                              |                                                                                                                                                   |
 | Build Arguments              | Leave empty                         | Harness recognises the framework “pytest” and will fill in the gaps at runtime                                                                    |
 | Test Report Paths            | Leave empty                         | Harness automatically parses the current directory to identify test results                                                                       |
 | **Additional Configuration** |                                     |                                                                                                                                                   |
-| Pre-Command                  | pip install pytest & cd ./python-tests | The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
+| Pre-Command                  | **pip install pytest & cd ./python-tests** | The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
 | Run only selected tests      | Enabled                             | Activate Test Intelligence                                                                                                                        |
 
 - After completing configuration select **Apply Changes** from the top right of the configuration popup
@@ -85,10 +85,10 @@
 | Input             | Value                                           | Notes                                                                    |
 | Name              | Push to DockerHub                               |                                                                          |
 | Docker Connector  | dockerhub                                       |                                                                          |
-| Docker Repository | nikpap/harness-workshop                         |                                                                          |
-| Tags              | _<+variable.username>_-<+pipeline.sequenceId>   | This will be the tag of the image using harness expressions              |
-| Dockerfile        | /harness/frontend-app/harness-webapp/Dockerfile | This tells harness where is the Dockerfile for building the app          |
-| Context           | /harness/frontend-app/harness-webapp            | This tells from where to run the instructions included in the dockerfile |
+| Docker Repository | **nikpap/harness-workshop**                         |                                                                          |
+| Tags              | **<+variable.username>-<+pipeline.sequenceId>**   | This will be the tag of the image using harness expressions              |
+| Dockerfile        | **/harness/frontend-app/harness-webapp/Dockerfile** | This tells harness where is the Dockerfile for building the app          |
+| Context           | **/harness/frontend-app/harness-webapp**            | This tells from where to run the instructions included in the dockerfile |
 
 1. Click **Apply Changes** to close the config dialog
 
@@ -168,7 +168,7 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 |                 |            |       |
 | --------------- | ---------- | ----- |
 | Input           | Value      | Notes |
-| Stage Name      | frontend   |       |
+| Stage Name      | **frontend**   |       |
 | Deployment Type | Kubernetes |       |
 
 4. Configure the **frontend** Stage with the following\
@@ -179,21 +179,21 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 |                            |                                                 |                                    |
 | -------------------------- | ----------------------------------------------- | ---------------------------------- |
 | Input                      | Value                                           | Notes                              |
-| Name                       | frontend                                        |                                    |
+| Name                       | **frontend**                                        |                                    |
 | Deployment Type            | Kubernetes                                      |                                    |
 | * **Add Manifest**         |                                                 |                                    |
 | Manifest Type              | K8s Manifest                                    |                                    |
 | K8s Manifest Store         | Code                                            |                                    |
-| Manifest Identifier        | templates                                       |                                    |
+| Manifest Identifier        | **templates**                                       |                                    |
 | Repository                 | harnessrepo                                     |                                    |
-| Branch                     | main                                            |                                    |
-| File/Folder Path           | harness-deploy/frontend/manifests               |                                    |
-| Values.yaml                | harness-deploy/frontend/values.yaml             |                                    |
+| Branch                     | **main**                                            |                                    |
+| File/Folder Path           | **harness-deploy/frontend/manifests**               |                                    |
+| Values.yaml                | **harness-deploy/frontend/values.yaml**             |                                    |
 | - **Add Artifact Source**  |                                                 |                                    |
 | Artifact Repository Type   | Docker Registry                                 |                                    |
 | Docker Registry Connector  | dockerhub                                       |                                    |
-| Artifact Source Identifier | frontend                                        |                                    |
-| Image Path                 | nikpap/harness-workshop                         |                                    |
+| Artifact Source Identifier | **frontend**                                      |                                    |
+| Image Path                 | **nikpap/harness-workshop**                         |                                    |
 | Tag                        | **<+variable.username>-<+pipeline.sequenceId>** | _Switch to expression and set to_  |
 
 **Environment**
