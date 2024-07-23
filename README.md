@@ -480,7 +480,7 @@ Lab 7 - Validate Release
 
 | Input            | Value            | Notes |
 | ---------------- | ---------------- | ----- |
-| Step Name        | Approval         |       |
+| Step Name        | **Approval**     |       |
 | Type of Approval | Harness Approval |       |
 
 6. Configure the Approval step as follows
@@ -518,13 +518,13 @@ Lab 7 - Validate Release
 
 6. Click **+ New Policy Set** and configure as follows
 
-| Input                      | Value                 | Notes |
-| -------------------------- | --------------------- | ----- |
-| Name                       | Criticals Not Allowed |       |
-| Entity Type                | Custom                |       |
-| Event Evaluation           | On Step               |       |
-| Policy Evaluation Criteria |                       |       |
-| Policy to Evaluate         | Runtime OWASP CVEs    |       |
+| Input                      | Value                     | Notes |
+| -------------------------- | ------------------------- | ----- |
+| Name                       | **Criticals Not Allowed** |       |
+| Entity Type                | Custom                    |       |
+| Event Evaluation           | On Step                   |       |
+| Policy Evaluation Criteria |                           |       |
+| Policy to Evaluate         | Runtime OWASP CVEs        |       |
 
 7. For the new policy set, toggle the **Enforced** button
 
@@ -540,10 +540,10 @@ Lab 7 - Validate Release
 4. Before the **Canary Deployment** Step Group, add a **Policy** type step and configure as follow
 
 | Input       | Value                                          | Notes                                                                                                                                                   |
-| ----------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name        | Policy - No Critical CVEs                      |                                                                                                                                                         |
-| Entity Type | Custom                                         |                                                                                                                                                         |
-| Policy Set  | Criticals Now Allowed                          | Make sure to select the Project tab in order to see your Policy Set                                                                                     |
-| Payload     | {"NODE\_OSS\_CRITICAL\_COUNT": _\<variable>_}  | Set the field type to Expression, then replace _\<variable>_ with OWASP output variable CRITICAL. Go to a previous execution to copy the variable path. |
+| ----------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name        | **Policy - No Critical CVEs**                    |                                                                                                                                                         |
+| Entity Type | Custom                                           |                                                                                                                                                         |
+| Policy Set  | Criticals Now Allowed                            | Make sure to select the Project tab in order to see your Policy Set                                                                                     |
+| Payload     | {"NODE\_OSS\_CRITICAL\_COUNT": _\<variable>_}    | Set the field type to Expression, then replace _\<variable>_ with OWASP output variable CRITICAL. Go to a previous execution to copy the variable path. |
 
 5. Save the pipeline and execute. Note that the pipeline fails at the policy evaluation step due to critical vulnerabilities being found by OWASP.
