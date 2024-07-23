@@ -31,8 +31,9 @@
 4. Enter the following values and click on **Set Up Stage**
 
 
-| --------------- | --------------- | ----- |
+
 | Input           | Value           | Notes |
+| --------------- | --------------- | ----- |
 | Stage Name      | **Build**       |       |
 | Clone Codebase  | Enabled         |       |
 | Repository Name | harnessrepo     |       |
@@ -41,8 +42,9 @@
    **Infrastructure**
 
 
-| -------------- | ----- | ----- |
+
 | Input          | Value | Notes |
+| -------------- | ----- | ----- |
 | Infrastructure | Cloud |       |
 
 **Execution**
@@ -50,8 +52,9 @@
 - Select **Add Step**, then **Add Step** again, then select **Run Tests** from the Step Library and configure with the following
 
 
-| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+
 | Input                        | Value                                      | Notes                                                                                                                                             |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                         | **Run Tests With Intelligence**            |                                                                                                                                                   |
 | Language                     | Python                                     |                                                                                                                                                   |
 | Build Tool                   | Pytest                                     |                                                                                                                                                   |
@@ -66,22 +69,25 @@
 - Select **Add Step**, then **Use template** (In this step we will be building the binary following same config as before. To avoid duplication of efforts a template has been precreated)
 
 
-| ------------- | ------------------- | ----- |
+
 | Input         | Value               | Notes |
+| ------------- | ------------------- | ----- |
 | Template Name | Compile Application |       |
 
 - Select the  template and press **Use Template,** then provide a name for that template
 
 
-| ----- | ------- | ----- |
+
 | Input | Value   | Notes |
+| ----- | ------- | ----- |
 | Name  | Compile |       |
 
 - Select **Add Step**, then **Add Step** again, then select **Build and Push an image to Dockerhub** from the Step Library and configure with the following
 
 
-| ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
+
 | Input             | Value                                               | Notes                                                                    |
+| ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
 | Name              | Push to DockerHub                                   |                                                                          |
 | Docker Connector  | dockerhub                                           |                                                                          |
 | Docker Repository | **nikpap/harness-workshop**                         |                                                                          |
@@ -94,8 +100,8 @@
 6) Click **Save** and then click **Run** to execute the pipeline with the following inputs
 
 
-| ----------- | ----- | ------------ |
 | Input       | Value | Notes        |
+| ----------- | ----- | ------------ |
 | Branch Name | main  | prepopulated |
 
 
@@ -135,8 +141,9 @@
 9. Click **Save** and then click **Run** to execute the pipeline with the following inputs
 
 
-| ----------- | ----- | ----- |
+
 | Input       | Value | Notes |
+| ----------- | ----- | ----- |
 | Branch Name | main  |       |
 
 After the **Build and Push** stage is complete, go to the **Security Tests** tab to see the deduplicated, normalized and prioritized list of vulnerabilities discovered across your scanners.
@@ -164,8 +171,9 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 
 3. Enter the following values and click on **Set Up Stage**
 
-| --------------- | -------------- | ----- |
+
 | Input           | Value          | Notes |
+| --------------- | -------------- | ----- |
 | Stage Name      | **frontend**   |       |
 | Deployment Type | Kubernetes     |       |
 
@@ -174,8 +182,9 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 
 - Click **+Add Service** and configure as follows****
 
-| -------------------------- | --------------------------------------------------- | ---------------------------------- |
+
 | Input                      | Value                                               | Notes                              |
+| -------------------------- | --------------------------------------------------- | ---------------------------------- |
 | Name                       | **frontend**                                        |                                    |
 | Deployment Type            | Kubernetes                                          |                                    |
 | * **Add Manifest**         |                                                     |                                    |
@@ -201,9 +210,8 @@ The target infrastructure has been pre-created for us. The application will be d
 
 - Select **prod** environment****
 
-
-| ----- | ----- | ----------------------------------------------------------------- |
 | Input | Value | Notes                                                             |
+| ----- | ----- | ----------------------------------------------------------------- |
 | Name  | prod  | Make sure to select the environment and infrastructure definition |
 
 - Click **- Select -** on the environment input box ****
@@ -211,8 +219,9 @@ The target infrastructure has been pre-created for us. The application will be d
 -  From the dropdown select k8s
 
 
-| ----- | ----- | ----- |
+
 | Input | Value | Notes |
+| ----- | ----- | ----- |
 | Name  | k8s   |       |
 
 **Execution**
@@ -235,8 +244,8 @@ The target infrastructure has been pre-created for us. The application will be d
 6. Enter the following values and click on **Set Up Stage**
 
 
-| --------------- | -------------- | ----- |
 | Input           | Value          | Notes |
+| --------------- | -------------- | ----- |
 | Stage Name      | **backend**    |       |
 | Deployment Type | Kubernetes     |       |
 
@@ -245,8 +254,9 @@ The target infrastructure has been pre-created for us. The application will be d
 
 - Click **Select Service** and configure as follows****
 
-| ----- | ----------- | ----- |
+
 | Input | Value       | Notes |
+| ----- | ----------- | ----- |
 | Name  | **backend** |       |
 
 **Environment**
@@ -271,9 +281,8 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | project                | domain        | suffix |
 | ---------------------- | ------------- | ------ |
-| http\://\<project\_id> | .cie-bootcamp | .co.uk |
+| http\://\<variable.username> | .cie-bootcamp | .co.uk |
 
-\
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfmb1N3lAe0EOnEun9neU9y3ilqy3HbxfnWfUMzF3FsykslwgQfU_W4pE0wlt5kYSp6_mTs7cVP0anhJ7uvtsytal2qX3ZEq3vvOT3DOBUzE9SZ3rpwkAHP6e_ExdRbo5VmN2kpxdFlp6u8iGaKwhW_uyAohEmJurkjmEB2Ww?key=cRG2cvp_PHVW0KG2Gq6Y_A)
 
 
@@ -303,10 +312,10 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 3. Click **+ New SDK Key**, configure as follows and click **Create**
 
-| Input    | Value  | Notes |
-| -------- | ------ | ----- |
-| Name     | sdk    |       |
-| Key Type | client |       |
+| Input    | Value      | Notes |
+| -------- | ------     | ----- |
+| Name     | **sdk**    |       |
+| Key Type | client     |       |
 
 4. Copy the secret to use later. Note that the key will be redacted once you leave the page.
 
@@ -316,10 +325,9 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 7. Modify the sdk variable and copy in the key
 
-|       |                                     |       |
-| ----- | ----------------------------------- | ----- |
 | Input | Value                               | Notes |
-| Name  | sdk                                 |       |
+| ----- | ----------------------------------- | ----- |
+| Name  | **sdk**                             |       |
 | Value | _SDK Key copied from previous step_ |       |
 
 4. Click **Save**
@@ -333,13 +341,13 @@ The target infrastructure has been pre-created for us and we used it in the prev
 2. Click **+ New Feature Flag,** configure as follows and click **Save and Close**.
 
 | Input                         | Value      | Notes |
-| ----------------------------- | ---------- | ----- |
-| Type                          | Boolean    |       |
-| Name                          | webinarff  |       |
-| **Variation Settings**        |            |       |
-| Name (first one)              | Show Offer |       |
-| Name (second one)             | Hide Offer |       |
-| If the flag is Enabled, serve | Show Offer |       |
+| ----------------------------- | --------------   | ----- |
+| Type                          | Boolean          |       |
+| Name                          | **webinarff**    |       |
+| **Variation Settings**        |                  |       |
+| Name (first one)              | **Show Offer**   |       |
+| Name (second one)             | **Hide Offer**   |       |
+| If the flag is Enabled, serve | **Show Offer**   |       |
 
 3. Enable the flag by clicking on the **Flag is Disabled** button and click **Save**
 
