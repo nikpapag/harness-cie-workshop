@@ -281,7 +281,7 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | project                | domain        | suffix |
 | ---------------------- | ------------- | ------ |
-| http\://\<variable.username> | .cie-bootcamp | .co.uk |
+| http\://\<+variable.username> | .cie-bootcamp | .co.uk |
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfmb1N3lAe0EOnEun9neU9y3ilqy3HbxfnWfUMzF3FsykslwgQfU_W4pE0wlt5kYSp6_mTs7cVP0anhJ7uvtsytal2qX3ZEq3vvOT3DOBUzE9SZ3rpwkAHP6e_ExdRbo5VmN2kpxdFlp6u8iGaKwhW_uyAohEmJurkjmEB2Ww?key=cRG2cvp_PHVW0KG2Gq6Y_A)
 
