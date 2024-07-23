@@ -59,7 +59,7 @@
 | Build Arguments              | Leave empty                         | Harness recognises the framework “pytest” and will fill in the gaps at runtime                                                                    |
 | Test Report Paths            | Leave empty                         | Harness automatically parses the current directory to identify test results                                                                       |
 | **Additional Configuration** |                                     |                                                                                                                                                   |
-| Pre-Command                  | pip install pytestcd ./python-tests | The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
+| Pre-Command                  | pip install pytest & cd ./python-tests | The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
 | Run only selected tests      | Enabled                             | Activate Test Intelligence                                                                                                                        |
 
 - After completing configuration select **Apply Changes** from the top right of the configuration popup
