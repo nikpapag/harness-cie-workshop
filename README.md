@@ -21,7 +21,7 @@
 
 2) Click **+ Create a Pipeline**, enter the following values, then click **Start**
 
-|                                        |                  |                                                                                            |
+
 | -------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
 | Input                                  | Value            | Notes                                                                                      |
 | Name                                   | **workshop** |                                                                                            |
@@ -31,17 +31,17 @@
 
 4. Enter the following values and click on **Set Up Stage**
 
-|                 |             |       |
-| --------------- | ----------- | ----- |
-| Input           | Value       | Notes |
+
+| --------------- | --------------- | ----- |
+| Input           | Value           | Notes |
 | Stage Name      | **Build**       |       |
-| Clone Codebase  | Enabled     |       |
-| Repository Name | harnessrepo |       |
+| Clone Codebase  | Enabled         |       |
+| Repository Name | harnessrepo     |       |
 
 5. There are two main tabs that need configuration:\
    **Infrastructure**
 
-|                |       |       |
+
 | -------------- | ----- | ----- |
 | Input          | Value | Notes |
 | Infrastructure | Cloud |       |
@@ -50,43 +50,43 @@
 
 - Select **Add Step**, then **Add Step** again, then select **Run Tests** from the Step Library and configure with the following
 
-|                              |                                     |                                                                                                                                                   |
-| ---------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Input                        | Value                               | Notes                                                                                                                                             |
-| Name                         | **Run Tests With Intelligence**         |                                                                                                                                                   |
-| Language                     | Python                              |                                                                                                                                                   |
-| Build Tool                   | Pytest                              |                                                                                                                                                   |
-| Build Arguments              | Leave empty                         | Harness recognises the framework “pytest” and will fill in the gaps at runtime                                                                    |
-| Test Report Paths            | Leave empty                         | Harness automatically parses the current directory to identify test results                                                                       |
-| **Additional Configuration** |                                     |                                                                                                                                                   |
+
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Input                        | Value                                      | Notes                                                                                                                                             |
+| Name                         | **Run Tests With Intelligence**            |                                                                                                                                                   |
+| Language                     | Python                                     |                                                                                                                                                   |
+| Build Tool                   | Pytest                                     |                                                                                                                                                   |
+| Build Arguments              | Leave empty                                | Harness recognises the framework “pytest” and will fill in the gaps at runtime                                                                    |
+| Test Report Paths            | Leave empty                                | Harness automatically parses the current directory to identify test results                                                                       |
+| **Additional Configuration** |                                            |                                                                                                                                                   |
 | Pre-Command                  | **pip install pytest & cd ./python-tests** | The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
-| Run only selected tests      | Enabled                             | Activate Test Intelligence                                                                                                                        |
+| Run only selected tests      | Enabled                                    | Activate Test Intelligence                                                                                                                        |
 
 - After completing configuration select **Apply Changes** from the top right of the configuration popup
 
 - Select **Add Step**, then **Use template** (In this step we will be building the binary following same config as before. To avoid duplication of efforts a template has been precreated)
 
-|               |                     |       |
+
 | ------------- | ------------------- | ----- |
 | Input         | Value               | Notes |
 | Template Name | Compile Application |       |
 
 - Select the  template and press **Use Template,** then provide a name for that template
 
-|       |         |       |
+
 | ----- | ------- | ----- |
 | Input | Value   | Notes |
 | Name  | Compile |       |
 
 - Select **Add Step**, then **Add Step** again, then select **Build and Push an image to Dockerhub** from the Step Library and configure with the following
 
-|                   |                                                 |                                                                          |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------ |
-| Input             | Value                                           | Notes                                                                    |
-| Name              | Push to DockerHub                               |                                                                          |
-| Docker Connector  | dockerhub                                       |                                                                          |
+
+| ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
+| Input             | Value                                               | Notes                                                                    |
+| Name              | Push to DockerHub                                   |                                                                          |
+| Docker Connector  | dockerhub                                           |                                                                          |
 | Docker Repository | **nikpap/harness-workshop**                         |                                                                          |
-| Tags              | **<+variable.username>-<+pipeline.sequenceId>**   | This will be the tag of the image using harness expressions              |
+| Tags              | **<+variable.username>-<+pipeline.sequenceId>**     | This will be the tag of the image using harness expressions              |
 | Dockerfile        | **/harness/frontend-app/harness-webapp/Dockerfile** | This tells harness where is the Dockerfile for building the app          |
 | Context           | **/harness/frontend-app/harness-webapp**            | This tells from where to run the instructions included in the dockerfile |
 
@@ -94,7 +94,7 @@
 
 6) Click **Save** and then click **Run** to execute the pipeline with the following inputs
 
-|             |       |              |
+
 | ----------- | ----- | ------------ |
 | Input       | Value | Notes        |
 | Branch Name | main  | prepopulated |
@@ -135,7 +135,7 @@
 
 9. Click **Save** and then click **Run** to execute the pipeline with the following inputs
 
-|             |       |       |
+
 | ----------- | ----- | ----- |
 | Input       | Value | Notes |
 | Branch Name | main  |       |
@@ -165,36 +165,34 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 
 3. Enter the following values and click on **Set Up Stage**
 
-|                 |            |       |
-| --------------- | ---------- | ----- |
-| Input           | Value      | Notes |
+| --------------- | -------------- | ----- |
+| Input           | Value          | Notes |
 | Stage Name      | **frontend**   |       |
-| Deployment Type | Kubernetes |       |
+| Deployment Type | Kubernetes     |       |
 
 4. Configure the **frontend** Stage with the following\
    **Service**
 
 - Click **+Add Service** and configure as follows****
 
-|                            |                                                 |                                    |
-| -------------------------- | ----------------------------------------------- | ---------------------------------- |
-| Input                      | Value                                           | Notes                              |
+| -------------------------- | --------------------------------------------------- | ---------------------------------- |
+| Input                      | Value                                               | Notes                              |
 | Name                       | **frontend**                                        |                                    |
-| Deployment Type            | Kubernetes                                      |                                    |
-| * **Add Manifest**         |                                                 |                                    |
-| Manifest Type              | K8s Manifest                                    |                                    |
-| K8s Manifest Store         | Code                                            |                                    |
+| Deployment Type            | Kubernetes                                          |                                    |
+| * **Add Manifest**         |                                                     |                                    |
+| Manifest Type              | K8s Manifest                                        |                                    |
+| K8s Manifest Store         | Code                                                |                                    |
 | Manifest Identifier        | **templates**                                       |                                    |
-| Repository                 | harnessrepo                                     |                                    |
+| Repository                 | harnessrepo                                         |                                    |
 | Branch                     | **main**                                            |                                    |
 | File/Folder Path           | **harness-deploy/frontend/manifests**               |                                    |
 | Values.yaml                | **harness-deploy/frontend/values.yaml**             |                                    |
-| - **Add Artifact Source**  |                                                 |                                    |
-| Artifact Repository Type   | Docker Registry                                 |                                    |
-| Docker Registry Connector  | dockerhub                                       |                                    |
-| Artifact Source Identifier | **frontend**                                      |                                    |
+| - **Add Artifact Source**  |                                                     |                                    |
+| Artifact Repository Type   | Docker Registry                                     |                                    |
+| Docker Registry Connector  | dockerhub                                           |                                    |
+| Artifact Source Identifier | **frontend**                                        |                                    |
 | Image Path                 | **nikpap/harness-workshop**                         |                                    |
-| Tag                        | **<+variable.username>-<+pipeline.sequenceId>** | _Switch to expression and set to_  |
+| Tag                        | **<+variable.username>-<+pipeline.sequenceId>**     | _Switch to expression and set to_  |
 
 **Environment**
 
@@ -204,7 +202,7 @@ The target infrastructure has been pre-created for us. The application will be d
 
 - Select **prod** environment****
 
-|       |       |                                                                   |
+
 | ----- | ----- | ----------------------------------------------------------------- |
 | Input | Value | Notes                                                             |
 | Name  | prod  | Make sure to select the environment and infrastructure definition |
@@ -213,7 +211,7 @@ The target infrastructure has been pre-created for us. The application will be d
 
 -  From the dropdown select k8s
 
-|       |       |       |
+
 | ----- | ----- | ----- |
 | Input | Value | Notes |
 | Name  | k8s   |       |
@@ -237,21 +235,20 @@ The target infrastructure has been pre-created for us. The application will be d
 
 6. Enter the following values and click on **Set Up Stage**
 
-|                 |            |       |
-| --------------- | ---------- | ----- |
-| Input           | Value      | Notes |
-| Stage Name      | backend    |       |
-| Deployment Type | Kubernetes |       |
+
+| --------------- | -------------- | ----- |
+| Input           | Value          | Notes |
+| Stage Name      | **backend**    |       |
+| Deployment Type | Kubernetes     |       |
 
 7. Configure the **backend** Stage with the following\
    **Service**
 
 - Click **Select Service** and configure as follows****
 
-|       |         |       |
-| ----- | ------- | ----- |
-| Input | Value   | Notes |
-| Name  | backend |       |
+| ----- | ----------- | ----- |
+| Input | Value       | Notes |
+| Name  | **backend** |       |
 
 **Environment**
 
