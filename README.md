@@ -23,8 +23,8 @@
 
 | Field                                  | Value            | Notes
 | -------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
-| Name                                   | **workshop**     |                                                                                            |
-| How do you want to setup your pipeline | Inline           | This indicates that Harness (rather than Git) will be the source of truth for the pipeline |
+| Name                                   |workshop|                                                                                            |
+| How do you want to setup your pipeline |Inline| This indicates that Harness (rather than Git) will be the source of truth for the pipeline |
 
 3. From Pipeline Studio, Click **Add Stage** and select **Build** as the Stage Type
 
