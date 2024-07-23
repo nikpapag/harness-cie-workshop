@@ -314,6 +314,20 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 4. Copy the secret to use later. Note that the key will be redacted once you leave the page.
 
+5. From the left hand side menu select Project settings
+
+6. From the resources available click on the **Variables** 
+
+7. Modify the sdk variable and copy in the key
+
+|       |                                     |       |
+| ----- | ----------------------------------- | ----- |
+| Input | Value                               | Notes |
+| Name  | sdk                                 |       |
+| Value | _SDK Key copied from previous step_ |       |
+
+4. Click **Save**
+
 ********
 
 **Create the Flag**
@@ -333,21 +347,6 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 3. Enable the flag by clicking on the **Flag is Disabled** button and click **Save**
 
-**Deploy the Application**
-
-1. From the left hand side menu select Project settings
-
-2. From the resources available click on the **Variables** 
-
-3. Modify the sdk variable and copy in the key
-
-|       |                                     |       |
-| ----- | ----------------------------------- | ----- |
-| Input | Value                               | Notes |
-| Name  | sdk                                 |       |
-| Value | _SDK Key copied from previous step_ |       |
-
-4. Click **Save**
 
 5. **Run** the pipeline created in previous steps
 
