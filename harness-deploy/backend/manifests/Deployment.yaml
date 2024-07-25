@@ -34,7 +34,11 @@ type: kubernetes.io/dockercfg
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  {{- if lower .Values.sename}}
+  name: {{lower .Values.name}}-{{lower .Values.sename}}-deploy
+  {{- else}}
   name: {{lower .Values.name}}-deployment
+  {{- end}}
   labels:
   {{- if lower .Values.sename}}
     app: {{lower .Values.name}}-{{ lower .Values.sename}}
