@@ -35,7 +35,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   {{- if lower .Values.sename}}
-  name: {{lower .Values.name}}-{{lower .Values.sename}}-deploy
+  name: {{lower .Values.name}}-{{lower .Values.sename}}-deployment
   {{- else}}
   name: {{lower .Values.name}}-deployment
   {{- end}}
