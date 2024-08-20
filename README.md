@@ -82,7 +82,7 @@
 | ----- | ------- | ----- |
 | Name  |Compile|       |
 
-- Select **Add Step**, then **Add Step** again, then select **Build and Push an image to Dockerhub** from the Step Library and configure with the following
+- Select **Add Step**, then **Add Step** again, then select **Build and Push an image to Docker Registry** from the Step Library and configure with the following
 
 
 
