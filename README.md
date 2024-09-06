@@ -271,13 +271,28 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 - Select **Canary**  and click on **Use Strategy**
 
+- **After** the canary deployment and **before** the canary delete step add **Harness Approval** step according to the table  below
+
+| Input            | Value            | Notes |
+| ---------------- | ---------------- | ----- |
+| Step Name        |Approval|       |
+| Type of Approval |Harness Approval|       |
+
+- Configure the Approval step as follows
+
+| Input       | Value             | Notes |
+| ----------- | ----------------- | ----- |
+| Name        |Approval|       |
+| User Groups |All Project Users|       |
+
+
 8. Click **Save** and then click **Run** to execute the pipeline with the following inputs. As a bonus, save your inputs as an Input Set before executing (see below)
 
 | Input       | Value | Notes       |
 | ----------- | ----- | ----------- |
 | Branch Name |main| Leave as is |
 
-9. While the canary deployment is ongoing navigate to the web page and see if you can spot the canary (use the check release button) 
+9. While the canary deployment is ongoing and waiting **approval** navigate to the web page and see if you can spot the canary (use the check release button) 
 
 | project                | domain        | suffix |
 | ---------------------- | ------------- | ------ |
@@ -285,6 +300,7 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfmb1N3lAe0EOnEun9neU9y3ilqy3HbxfnWfUMzF3FsykslwgQfU_W4pE0wlt5kYSp6_mTs7cVP0anhJ7uvtsytal2qX3ZEq3vvOT3DOBUzE9SZ3rpwkAHP6e_ExdRbo5VmN2kpxdFlp6u8iGaKwhW_uyAohEmJurkjmEB2Ww?key=cRG2cvp_PHVW0KG2Gq6Y_A)
 
+10. Approve the canary deployment for the pipeline to complete
 
 # Lab 5 - Feature Flags
 
@@ -354,6 +370,8 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 5. **Run** the pipeline created in previous steps
 
+6. **Approve canary deployment** before progressing to the next step
+
 **Change the Flag via the UI**
 
 1. From the left hand menu in Harness, go to **Feature Flags** → **Target Management**
@@ -373,7 +391,7 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 6. Note that your application now does NOT display the special offer
 
-Lab 6 - Continuous Verification
+# Lab 6 - Continuous Verification
 
 
 ### Summary: Automate the verification of new releases 
@@ -386,7 +404,7 @@ Lab 6 - Continuous Verification
 
 **Steps**
 
-1. In the existing pipeline, within the Deploy backend stage **after** Canary Deployment step click on the plus icon to add a new step
+1. In the existing pipeline, within the Deploy backend stage **after** Canary Deployment and **before** the approval step click on the plus icon to add a new step
 
 2. Add a **Verify** step with the following configuration
 
@@ -403,7 +421,8 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 | ----------- | ----- | ----------- |
 | Branch Name |main| Leave as is |
 
-Lab 7 - Validate Release
+
+# Lab 7 - Validate Release
 
 **Learning Objective(s):**
 
@@ -476,7 +495,7 @@ Lab 7 - Validate Release
 
 4. Open the pipeline in edit mode and navigate to the “**frontend**” stage
 
-5. Before the canary step add an **Harness Approval** step according to the table  below
+5. Before the rolling deployment step add **Harness Approval** step according to the table  below
 
 | Input            | Value            | Notes |
 | ---------------- | ---------------- | ----- |
@@ -490,9 +509,7 @@ Lab 7 - Validate Release
 | Name        |Approval|       |
 | User Groups |All Project Users|       |
 
-7. Repeat for the **backend** stage
-
-8. Click **Save** and note that the save succeeds without any policy failure
+7. Click **Save** and note that the save succeeds without any policy failure
 
 
 # Lab 9 - Governance/Policy as Code (Advanced)
