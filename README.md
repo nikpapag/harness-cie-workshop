@@ -509,7 +509,9 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 | Name        |Approval|       |
 | User Groups |All Project Users|       |
 
-7. Click **Save** and note that the save succeeds without any policy failure
+7. In a similar way as before navigate to the “**backend**” stage
+8. Before the canady deployment add **Harness Approval**
+10. Click **Save** and note that the save succeeds without any policy failure
 
 
 # Lab 9 - Governance/Policy as Code (Advanced)
