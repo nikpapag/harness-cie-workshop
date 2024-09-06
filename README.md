@@ -123,7 +123,7 @@
 
 1. In the existing pipeline, within the Build stage **before** PushToDockerhub step click on the plus icon to add a new step
 
-2. Instead of add step select use template\
+2. Select use template\
    ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeC5rTVxlk7DeZeU_cINwcKo6Nf2wVW9brQ9MiCEfppJwmU-uH3QcNZ53qTxhur57KeySksoDBg9EqjhgKOgAEDKon6iNz9cFxozBe9VZssV-t77VNo6t1zPUvm6e2NOZJDKncxd9c2GM4HE-h-L4cIOl4u6Uqx_azoKchMdg?key=cRG2cvp_PHVW0KG2Gq6Y_A)
 
 3. Select **DevX Fortify Scan** 
@@ -132,7 +132,7 @@
 
 5. In the existing pipeline, within the Build stage **after** PushToDockerhub step click on the plus icon to add a new step
 
-6. Instead of add step select use template
+6. Select use template
 
 7. Select **OWASP**
 
