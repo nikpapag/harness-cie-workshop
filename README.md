@@ -470,7 +470,7 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 **Steps\
 ****Create a Policy to require Approvals**
 
-1. From the secondary menu, expand **Project Setup** and select **Governance Policies**
+1. From the secondary menu, select **Project Settings** and select **Governance Policies**
 
 2. Click **Build a Sample Policy**
 
@@ -518,7 +518,7 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 
 **Create a Policy to block critical CVEs**
 
-1. From the secondary menu, expand **Project Setup** and select **Policies**
+1. From the secondary menu, select **Project Settings** and select **Policies**
 
 2. Select the **Policies** tab 
 
@@ -556,7 +556,7 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 
 3. Select the **frontend** stage
 
-4. Before the **Canary Deployment** Step Group, add a **Policy** type step and configure as follow
+4. Before the **Rollout Deployment** Step Group, add a **Policy** type step and configure as follow
 
 | Input       | Value                                          | Notes                                                                                                                                                   |
 | ----------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
