@@ -200,7 +200,7 @@ After the **Build and Push** stage is complete, go to the **Security Tests** tab
 | Docker Registry Connector  |dockerhub|                                    |
 | Artifact Source Identifier |frontend|                                    |
 | Image Path                 |nikpap/harness-workshop|                                    |
-| Tag                        |<+variable.username>-<+pipeline.sequenceId>| _Switch to expression and set to_  |
+| Tag                        |<+variable.username>-<+pipeline.sequenceId>| _Select value, then click on the pin and select expression and paste the value |
 
 **Environment**
 
