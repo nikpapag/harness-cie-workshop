@@ -467,8 +467,8 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 
 - Test policy enforcement
 
-**Steps\
-****Create a Policy to require Approvals**
+**Steps**
+**Create a Policy to require Approvals**
 
 1. From the secondary menu, select **Project Settings** and select **Governance Policies**
 
@@ -491,27 +491,25 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 
 2. Try to run the pipeline and note that the failure due to lack of an approval stage
 
-3. Click **Save** and note that the failure due to lack of an approval stage
+3. Open the pipeline in edit mode and navigate to the “**frontend**” stage
 
-4. Open the pipeline in edit mode and navigate to the “**frontend**” stage
-
-5. Before the rolling deployment step add **Harness Approval** step according to the table  below
+4. Before the rolling deployment step add **Harness Approval** step according to the table  below
 
 | Input            | Value            | Notes |
 | ---------------- | ---------------- | ----- |
 | Step Name        |Approval|       |
 | Type of Approval |Harness Approval|       |
 
-6. Configure the Approval step as follows
+5. Configure the Approval step as follows
 
 | Input       | Value             | Notes |
 | ----------- | ----------------- | ----- |
 | Name        |Approval|       |
 | User Groups |All Project Users|       |
 
-7. In a similar way as before navigate to the “**backend**” stage
-8. Before the canary deployment block add **Harness Approval**
-10. Click **Save** and note that the save succeeds without any policy failure
+6. Navigate to the “**backend**” stage
+7. Repeat steps 4-5 to add an approval **before** the canary deployment block 
+8. Click **Save** and note that the save succeeds without any policy failure
 
 
 # Lab 9 - Governance/Policy as Code (Advanced)
