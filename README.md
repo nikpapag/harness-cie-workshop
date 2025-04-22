@@ -561,7 +561,7 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 | ----------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name        |Policy - No Critical CVEs|                                                                                                                                                         |
 | Entity Type |Custom|                                                                                                                                                         |
-| Policy Set  |Criticals Now Allowed| Make sure to select the Project tab in order to see your Policy Set                                                                                     |
+| Policy Set  |Criticals Not Allowed| Make sure to select the Project tab in order to see your Policy Set                                                                                     |
 | Payload     |{"NODE\_OSS\_CRITICAL\_COUNT": _\<variable>_}| Set the field type to Expression, then replace _\<variable>_ with OWASP output variable CRITICAL. Go to a previous execution to copy the variable path. |
 
 5. Save the pipeline and execute. Note that the pipeline fails at the policy evaluation step due to critical vulnerabilities being found by OWASP.
