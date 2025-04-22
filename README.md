@@ -88,7 +88,8 @@
 
 | Input             | Value                                               | Notes                                                                    |
 | ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
-| Name              |Push to DockerHub|                                                                          |
+| Name              |Push to DockerHub|
+| Registry Type     |Third-Party Artifact Registry|
 | Docker Connector  |dockerhub|                                                                          |
 | Docker Repository |nikpap/harness-workshop|                                                                          |
 | Tags              |<+variable.username>-<+pipeline.sequenceId>| This will be the tag of the image using harness expressions              |
