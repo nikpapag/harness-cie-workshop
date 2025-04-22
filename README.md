@@ -331,7 +331,7 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input    | Value      | Notes |
 | -------- | ------     | ----- |
-| Name     |dk|       |
+| Name     |sdk|       |
 | Key Type |client|       |
 
 4. Copy the secret to use later. Note that the key will be redacted once you leave the page.
