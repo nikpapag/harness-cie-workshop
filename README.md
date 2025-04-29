@@ -88,7 +88,8 @@
 
 | Input             | Value                                               | Notes                                                                    |
 | ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
-| Name              |Push to DockerHub|                                                                          |
+| Name              |Push to DockerHub|
+| Registry Type     |Third-Party Artifact Registry|
 | Docker Connector  |dockerhub|                                                                          |
 | Docker Repository |nikpap/harness-workshop|                                                                          |
 | Tags              |<+variable.username>-<+pipeline.sequenceId>| This will be the tag of the image using harness expressions              |
@@ -330,7 +331,7 @@ The target infrastructure has been pre-created for us and we used it in the prev
 
 | Input    | Value      | Notes |
 | -------- | ------     | ----- |
-| Name     |dk|       |
+| Name     |sdk|       |
 | Key Type |client|       |
 
 4. Copy the secret to use later. Note that the key will be redacted once you leave the page.
@@ -560,7 +561,7 @@ Click **Save** and then click **Run** to execute the pipeline with the following
 | ----------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name        |Policy - No Critical CVEs|                                                                                                                                                         |
 | Entity Type |Custom|                                                                                                                                                         |
-| Policy Set  |Criticals Now Allowed| Make sure to select the Project tab in order to see your Policy Set                                                                                     |
+| Policy Set  |Criticals Not Allowed| Make sure to select the Project tab in order to see your Policy Set                                                                                     |
 | Payload     |{"NODE\_OSS\_CRITICAL\_COUNT": _\<variable>_}| Set the field type to Expression, then replace _\<variable>_ with OWASP output variable CRITICAL. Go to a previous execution to copy the variable path. |
 
 5. Save the pipeline and execute. Note that the pipeline fails at the policy evaluation step due to critical vulnerabilities being found by OWASP.
