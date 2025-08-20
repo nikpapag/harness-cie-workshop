@@ -56,10 +56,8 @@
 | Input                        | Value                                      | Notes                                                                                                                                             |
 | ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                         |Run Tests With Intelligence|                                                                                                                                                   |                                   |
-| Test Report Paths            | Leave empty                                | Harness automatically parses the current directory to identify test results                                                                       |
-| **Additional Configuration** |                                            |                                                                                                                                                   |
-| Command                  |pip install pytest & cd ./python-tests| The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |
-| Run only selected tests      |Enabled| Activate Test Intelligence                                                                                                                        |
+| Command                  |pip install pytest & cd ./python-tests| The github repo is a monorepo with application(s) and configuration in the same repo. Therefore we need to navigate to the application subfolder. |                                                                                                                 |
+
 
 - After completing configuration select **Apply Changes** from the top right of the configuration popup
 
